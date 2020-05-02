@@ -7,14 +7,14 @@ pipeline {
           nodejs('Node-14.0'){
             sh 'yarn install'
           }
- 
       }
     }
     stage("run backend") {
       steps {
-          echo 'executing gradle...' 
-          def gradleHome = tool 'gradle'
-        sh "'${gradleHome}/bin/gradle' -v"
+        echo 'executing gradle...' 
+        withGradle(){
+            sh './gradlew -v'
+        }
       }
     }
   }
