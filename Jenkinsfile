@@ -14,6 +14,11 @@ pipeline {
         echo 'executing gradle...' 
         withGradle(){
             sh './gradlew -v'
+          task hello {
+            doLast {
+            println 'tutorialspoint'
+          }
+}
         }
       }
     }
