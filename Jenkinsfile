@@ -56,8 +56,10 @@ pipeline {
   }
   post{
     always {
+      echo 'Inside post - always'
     }
     failure{
+      echo 'Inside post - failure'
     }
   }
 }
