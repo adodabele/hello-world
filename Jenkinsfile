@@ -47,10 +47,10 @@ pipeline {
           //sh " ${SERVER_CREDENTIALS"
           //or
           withCredentials([
-            usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
+            usernamePassword(credentials: 'server-credentials', usernameVariable: USR, passwordVariable: PWD)
           ]){
             //sh "some script ${USER} ${PWD}"
-            echo 'getting credentials... ${USER} and ${PWD}'
+            echo 'getting credentials... ${USR} and ${PWD}'
           }
       }
     }
