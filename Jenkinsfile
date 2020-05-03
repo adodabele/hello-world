@@ -1,4 +1,5 @@
 //CODE_CHANGES = getGitChanges
+def gv
 pipeline {
   agent any
   tools{
@@ -14,8 +15,8 @@ pipeline {
   environment {
     NEW_VERSION = '1.3.0' 
     SERVER_CREDENTIALS = credentials('server-credentials') 
-    
   }
+
   stages {
     stage("init"){
       steps {
@@ -27,36 +28,35 @@ pipeline {
     stage("build") {
         //when{
         //expression{
-          //BRANCH_NAME == 'dev' && CODE_CHANGES == true  
+          //BRANCH_NAME == 'dev' || BRANCH_NAME == 'master' && CODE_CHANGES == true  
         //}
         //}
-      steps {
-          echo 'building the application...'
-        echo "building version ${NEW_VERSION}"
-      }
+        steps {
+        script {
+            gv = gv.buildApp()
+        }
+      }  
     }
     stage("test") {
-      when{
-        expression{
-          BRANCH_NAME == 'dev' || BRANCH_NAME == 'master' 
+      when {
+        expression {
+          params executeTests
         }
       }
-      steps {
-          echo 'testing the application...'
+      steps{
+        script {
+          gv.testApp()
+        }
       }
     }
+
     stage("deploy") {
+
       steps {
-          echo 'deploying the application...'
-          //echo "deploying with ${SERVER_CREDENTIALS}"
-          //sh " ${SERVER_CREDENTIALS"
-          //or
-          withCredentials([
-            usernamePassword(credentials: 'server-credentials', usernameVariable: USR, passwordVariable: PWD)
-          ]){
-            //sh "some script ${USER} ${PWD}"
-            echo 'getting credentials... ${USR} and ${PWD}'
-          }
+        script {
+          gv.deployApp()
+        }
+
       }
     }
   }
