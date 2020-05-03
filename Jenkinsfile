@@ -1,4 +1,5 @@
 //CODE_CHANGES = getGitChanges
+//Adding groovy script and calling from Jenkinsfile
 def gv
 pipeline {
   agent any
