@@ -1,15 +1,15 @@
-dev buildApp() {
+def buildApp() {
   echo 'building the application...'
   echo "building version ${NEW_VERSION}"
 
 }
 
-dev testApp() {
+def testApp() {
   echo "Testing the application"
 }
 
-dev deployApp() {
-  
+def deployApp() {
+
   //echo "deploying with ${SERVER_CREDENTIALS}"
   //sh " ${SERVER_CREDENTIALS"
   //or
