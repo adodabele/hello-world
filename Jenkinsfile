@@ -49,7 +49,7 @@ pipeline {
             usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
           ]){
             //sh "some script ${USER} ${PWD}"
-            echo 'getting credentials...'
+            echo 'getting credentials... ${USER} and ${PWD}'
           }
       }
     }
