@@ -4,6 +4,7 @@ pipeline {
   tools{
     //gradle maven jdk -> Jenkins provided tools
     //maven 'Maven'
+    gradle 'Gradle'
   }
   parameters {
     string (name: 'VERSION', defaultValue: ' ', description: 'version to deploy to prod')
