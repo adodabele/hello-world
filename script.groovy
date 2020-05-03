@@ -20,7 +20,7 @@ dev deployApp() {
     //echo 'getting credentials... ${USR} and ${PWD}'
   //}
 
-  echo 'Deploying the application..."
+  echo "Deploying the application..."
   echo "deploying version ${params.VERSION}"
 
 }
