@@ -14,7 +14,6 @@ pipeline {
         echo 'executing gradle...' 
         withGradle(){
             sh './gradlew -v'
-            sh 'println "Hello Gradle!"'
         }
       }
     }
