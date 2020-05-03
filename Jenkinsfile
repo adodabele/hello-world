@@ -4,12 +4,12 @@ pipeline {
   tools{
     //gradle maven jdk -> Jenkins provided tools
     //maven 'Maven'
-    gradle 'Gradle'
+    gradle 'gradle'
   }
   parameters {
     string (name: 'VERSION', defaultValue: ' ', description: 'version to deploy to prod')
     choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
-    booleanParam(name: 'executeTests', defaultVlaue: true, description: '')
+    booleanParam(name: 'executeTests', defaultValue: true, description: '')
     
     
   }
